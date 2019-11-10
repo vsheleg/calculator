@@ -90,6 +90,9 @@ function percents() {
     lastPressedButton(equalPressed)
     equalPressed = false
     var elem = document.getElementById("express");
+    if (!elem.value) {
+        return 0;
+    }
     elem.value = (eval(elem.value))/100
 }
 function slash() {
@@ -97,6 +100,9 @@ function slash() {
     lastPressedButton(equalPressed)
     equalPressed = false
     var elem = document.getElementById("express");
+    if (!elem.value) {
+        return 0;
+    }
     for (let i=0;i<listOfSings.length;i++) {   //check which character was last entered
                                                 // if math sign then skip step
         if (elem.value[elem.value.length-1]==listOfSings[i]) {
@@ -110,7 +116,9 @@ function oroot() {
     lastPressedButton(equalPressed)
     equalPressed = false
     var elem = document.getElementById("express");
-    
+    if (!elem.value) {
+        return 0;
+    }
     let result = eval(elem.value)
     if (result<0) {
         alert("you can not take root from negative number")
@@ -126,6 +134,9 @@ function plus() {
     lastPressedButton(equalPressed)
     equalPressed = false
     var elem = document.getElementById("express");
+    if (!elem.value) {
+        return 0;
+    }
     for (let i=0;i<listOfSings.length;i++) {
         if (elem.value[elem.value.length-1]==listOfSings[i]) {
             return 0;
@@ -138,6 +149,9 @@ function minus() {
     lastPressedButton(equalPressed)
     equalPressed = false
     var elem = document.getElementById("express");
+    if (!elem.value) {
+        return 0;
+    }
     for (let i=0;i<listOfSings.length;i++) {
         if (elem.value[elem.value.length-1]==listOfSings[i]) {
             return 0;
@@ -150,6 +164,9 @@ function multi() {
     lastPressedButton(equalPressed)
     equalPressed = false
     var elem = document.getElementById("express");
+    if (!elem.value) {
+        return 0;
+    }
     for (let i=0;i<listOfSings.length;i++) {
         if (elem.value[elem.value.length-1]==listOfSings[i]) {
             return 0;
@@ -162,16 +179,24 @@ function comma() {
     lastPressedButton(equalPressed)
     equalPressed = false
     var elem = document.getElementById("express");
+    if (!elem.value) {
+        return 0;
+    }
     if (elem.value[elem.value.length-1] !== ".") {
         elem.value += "."    
     }
 }
 function equal() {
     var elem = document.getElementById("express");
+    if (!elem.value) {
+        return 0;
+    }
+
     elem.value = eval(elem.value);
     equalPressed = true;
-    
+
 }
+
 function lastPressedButton(equalPressed) { //if the last pressed button was "="
                                         //then before entering a new character you need
                                         //to delete all
@@ -201,6 +226,9 @@ function changeFunc($i) {
 function power() {
     deletePower();
     var inpElem = document.getElementById("express");
+    if (!inpElem.value) {
+        return 0;
+    }
       var base = eval(inpElem.value)
       inpElem.value = base*base;
     
